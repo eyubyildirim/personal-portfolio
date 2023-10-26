@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Eyüb Yıldırım" description="About Eyüb Yıldırım Lorem Ipsum">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+				<!-- <img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Eyüb Yıldırım at work with a colleague"
+				/> -->
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						I was born in Pendik, a small town located in Istanbul, Turkey on Octeber 17th 2001. From a small age I showed
+						interest in different areas of engineering. When I was 14 years old, I started to learn programming. The first
+						language that I had learned was Java, I got into it specifically because I wanted to program a mod for Minecraft.
+						I tried to learn different languages in high school like, C/C++, C# and Python. In university, I got into a 
+						project team at my school. There I learned a lot about path-finding, robotics and computer vision. We used mainly 
+						Python.
+					</p>
+					<br/>
+					<br/>
+					<p>
+						Then I got an internship at a revered finance firm in Turkey. I was in a team of around 8-10 people. Most
+						programmers in my team were focused on backend development so there was an opening for frontend tasks. I used
+						that opportunity to learn React and I fell in love with it. I've used React with GraphQL there and learned a lot
+						about it. 
+					</p>
+					<br/>
+					<p>
+						While all of this were happening, I was also in a startup team. We were developing a product that would
+						let people rent shared micro-cars for short distances. I was the only programmer in the team so I had to do all
+						of the work, from architecture design to backend development. 
+					</p>
+					<br/>
+					<p>
+						At first we were using Flutter for our mobile application but after a while, I decided that React Native with 
+						Expo would be a lot cleaner and easier for us to get started. I quickly adapted my React skills to React Native
+						and developed the first version of our app in 1.5 months. I've used a lot of industry-standard libraries like 
+						React Navigation, React Native Maps, React Native Reanimated. 
+					</p>
+					<br/>
+					<p>
+						I've also developed the admin panel of our app with React and Next.js. I've used a lot of libraries like 
+						React Query, tRPC and Prisma. Since we are a small team, 1 in development and 1 business, we had to rely on a 
+						cloud provider for our backend. We've selected AWS because it seemed the most user-friendly and scalable. I've 
+						used many a different services, most prominently Lambda, Cognito, DynamoDB, API Gateway and Step Functions. We've 
+						created a CI/CD pipeline on GitHub using Actions, for our mobile application. Admin panel is deployed using Vercel. 
+						We've created a pleasurable experience for our users, making our app fast, efficient and easy-to-use.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>I am currently studying Control and Automation Engineering in Istanbul Technical University.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>Mainly React/Native, Next, AWS, TailwindCSS, GraphQL. I've also tinkered with a lot of 
+						different technologies, most of them I mentioned above.</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
